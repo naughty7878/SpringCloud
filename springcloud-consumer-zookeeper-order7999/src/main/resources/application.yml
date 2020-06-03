@@ -1,0 +1,17 @@
+# 端口
+server:
+  port: 7999
+
+spring:
+  application:
+    name: cloud-order
+  devtools:
+    restart:
+      # 解决idea的编译未完成，DevTools的已重启，导致的问题
+      # 在轮询类路径更改之间等待的时间量。
+      poll-interval: 3000ms
+      # 在重新启动之前不更改任何类路径所需的静默时间
+      quiet-period: 2999ms
+  cloud:
+    zookeeper:
+      connect-string: localhost:2181

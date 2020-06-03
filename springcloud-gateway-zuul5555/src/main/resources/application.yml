@@ -1,0 +1,33 @@
+# 端口
+server:
+  port: 5555
+
+spring:
+  application:
+    name: cloud-gateway-zuul
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+
+zuul:
+  #网关前缀，默认无
+  prefix: /test
+  #禁用这个微服务order-service
+  #ignored-services: order-service
+  #禁用所有的微服务
+  ignored-services: "*"
+  routes:
+    api-payment: #对应服务名称,可以自定义（最好保持一致）
+      path: /payment_api/**
+      serviceId: cloud-payment-service #对应服务名称
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,routes,filters

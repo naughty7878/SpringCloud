@@ -1,0 +1,41 @@
+# 端口
+server:
+  port: 8762
+
+spring:
+  application:
+    name: cloud-eureka-server
+  devtools:
+    restart:
+      # 解决idea的编译未完成，DevTools的已重启，导致的问题
+      # 在轮询类路径更改之间等待的时间量。
+      poll-interval: 3000ms
+      # 在重新启动之前不更改任何类路径所需的静默时间
+      quiet-period: 2999ms
+  security:
+    user:
+      name: root
+      password: 123456
+
+eureka:
+  instance:
+    # eureka服务端的实例名称
+    hostname: eureka8762.com
+  client:
+    # false表示不向注册中心注册自己
+    register-with-eureka: false
+    # false表示自己端就是注册中心，职责就是维护服务实例，并不需要去检查服务
+    fetch-registry: false
+    # 设置与Eureka Server交互的地址查询服务和注册服务都需要依赖这个地址
+    service-url:
+      defaultZone: http://${spring.security.user.name}:${spring.security.user.password}@eureka8761.com:8761/eureka,http://${spring.security.user.name}:${spring.security.user.password}@eureka8763.com:8763/eureka
+#  server:
+#    # 是否开启自我保护模式，默认是true
+#    enable-self-preservation: false
+#    # 扫描失效服务的时间间隔。单位 毫秒。 默认值 60 * 1000
+#    eviction-interval-timer-in-ms: 1000
+
+#安全认证信息
+security:
+  basic:
+    enabled: true

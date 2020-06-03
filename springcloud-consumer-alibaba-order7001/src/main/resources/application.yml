@@ -1,0 +1,11 @@
+# 端口
+server:
+  port: 7001
+
+spring:
+  application:
+    name: nacos-order-consumer
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848

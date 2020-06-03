@@ -1,0 +1,8 @@
+# 端口
+server:
+  port: 8901
+
+spring:
+  profiles:
+    # 表示开发环境
+    active: dev

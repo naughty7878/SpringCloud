@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: nacos-config-client
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8080
+      config:
+        server-addr: 127.0.0.1:8080
+        # 配置内容文件的数据格式，默认值：properties
+        file-extension: yaml
+#        group: SZ_GROUP
+#        # 命名空间ID
+#        namespace: c17382d8-9c38-4b21-b4e8-7f8a802788e2
+
+
+

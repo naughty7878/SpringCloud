@@ -1,0 +1,44 @@
+# 端口
+server:
+  port: 8008
+
+spring:
+  application:
+    name: cloud-payment-service
+  devtools:
+    restart:
+      # 解决idea的编译未完成，DevTools的已重启，导致的问题
+      # 在轮询类路径更改之间等待的时间量。
+      poll-interval: 3000ms
+      # 在重新启动之前不更改任何类路径所需的静默时间
+      quiet-period: 2999ms
+
+
+eureka:
+  client:
+    # 表示将自己注册进Eureka Server默认为true
+    register-with-eureka: true
+    # 是否从Eureka Server抓去已有的注册信息，默认是true
+    fetch-registry: true
+    # 设置与Eureka Server交互的地址查询服务和注册服务都需要依赖这个地址
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+      # defaultZone: http://${spring.security.user.name}:${spring.security.user.password}@eureka8761.com:8761/eureka,http://${spring.security.user.name}:${spring.security.user.password}@eureka8762.com:8762/eureka
+#  instance:
+#    #  instance:
+#    instance-id: ${spring.cloud.client.ip-address}:${server.port}
+#    # 访问路径可以显示IP地址
+#    prefer-ip-address: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,hystrix.stream
+
+
+#management:
+#  endpoints:
+#    web:
+#      exposure:
+#        include: "*"

@@ -1,0 +1,23 @@
+# 端口
+server:
+  port: 7980
+
+spring:
+  application:
+    name: hystrix-turbine
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+
+turbine:
+  # 配置Eureka中的serviceId列表，表明监控哪些服务，多个用逗号隔开
+  app-config: cloud-payment-service
+  aggregator:
+    cluster-config: default
+  cluster-name-expression: "'default'"
+  #更改turbine连接的默认uri ,默认为actuator/hystrix.stream
+#  instanceUrlSuffix: hystrix.stream
