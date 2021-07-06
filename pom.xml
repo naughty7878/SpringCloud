@@ -54,7 +54,7 @@
     <properties>
         <spring-boot.version>2.2.5.RELEASE</spring-boot.version>
         <spring-cloud.version>Hoxton.SR3</spring-cloud.version>
-        <spring-cloud-alibaba.version>2.1.0.RELEASE</spring-cloud-alibaba.version>
+        <spring-cloud-alibaba.version>2.2.1.RELEASE</spring-cloud-alibaba.version>
         <mybatis-spring-boot.version>2.1.2</mybatis-spring-boot.version>
         <mysql.version>8.0.12</mysql.version>
         <druid.version>1.1.21</druid.version>

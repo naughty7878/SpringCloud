@@ -8,9 +8,9 @@ spring:
   #   数据源基本配置
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/test_springcloud?allowPublicKeyRetrieval=true&useSSL=true
-    username: root
-    password: 123456
+    url: jdbc:mysql://47.106.74.177:13306/test_springcloud?allowPublicKeyRetrieval=true&useSSL=true
+    username: hd
+    password: hd123456
   devtools:
     restart:
       # 解决idea的编译未完成，DevTools的已重启，导致的问题
