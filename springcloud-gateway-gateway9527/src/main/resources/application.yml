@@ -20,6 +20,9 @@ spring:
         locator:
           # 开启从注册中心动态创建路由的功能，利用微服务名进行路由
           enabled: true
+          # 忽略大小写匹配，默认为 false。
+          # 当 eureka 自动大写 serviceId 时很有用。 所以 MYSERIVCE，会匹配 /myservice/**
+          lowerCaseServiceId: true
       routes:
           # 路由id
         - id: payment_routh
@@ -29,6 +32,12 @@ spring:
           predicates:
             # curl http://localhost:9527/payment/get/1
             - Path=/payment/get/**
+
+            # 自定义Age断言工厂
+            # Age：自动找到 "Age" + "RoutePredicateFactory" 断言工厂
+            # 18,60: 断言工厂参数
+            # 限制年龄[18, 60)的人能访问
+#            - Age=18,60
 
             # After时间断言，时间之后
             # - After=2020-04-21T23:57:57.308+08:00[Asia/Shanghai]
@@ -65,6 +74,15 @@ spring:
 #          uri: http://localhost:8002
 #          predicates:
 #            - Weight=group1, 2
+#          filters:
+##             自定义Age过滤器工厂
+##             Age：自动找到 "Age" + "GatewayFilterFactory" 过滤器工厂
+##             18,60: 断言工厂参数
+##             限制年龄[18, 60)的人能访问
+#            - name: Age
+#              args:
+#                name: minAge,maxAge
+#                value: 18,60
 
 eureka:
   client:

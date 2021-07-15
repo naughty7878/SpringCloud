@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
-@Component
+//@Component
 // Feign客户端
 @FeignClient("CLOUD-PAYMENT-SERVICE")
 public interface PaymentFeignService {

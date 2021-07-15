@@ -8,6 +8,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class GatewayConfig {
 
+    // 自定义路由定位器
     @Bean
     public RouteLocator customRouteLocator(RouteLocatorBuilder routeLocatorBuilder){
         // 路由构造器
@@ -22,4 +23,6 @@ public class GatewayConfig {
 
         return routes.build();
     }
+
+
 }
